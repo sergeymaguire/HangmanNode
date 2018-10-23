@@ -29,20 +29,18 @@ readline.emitKeypressEvents(process.stdin);
 
 
 process.stdin.on('keypress', (str, key) => {
-
- var letterGuessed = console.log("Your current guess: " + str);
- if(letterGuessed === undefined){
-     console.log("Choose a letter please")
- }
- console.log(letterGuessed)
+  console.log( str);
+  guessesRemaining--;
   console.log(guessesRemaining);
   if (guessesRemaining === 0){
       console.log("You lose! Try Again!")
+      guessesRemaining;
       gameLost();
   }
   //console.log(str);
-  //if(str === undefined)
-  //console.log("Please pick a real letter")
+  if(str === undefined)
+  console.log("Please pick a real letter")
+  guessesRemaining;
 })
 }
 startGame();
