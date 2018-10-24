@@ -1,13 +1,8 @@
 let Letter = require("./letter.js");
-
-
-
-
 var letter = new Letter("Jurassic Park");
 var guess = "y";
 var l = letter.guess(guess);
 logGuess(guess, l);
-
 
 guess = "j";
 
