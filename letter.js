@@ -1,29 +1,23 @@
-var Letter = function (word) {
-    this.word = word.toLowerCase();
-    this.guessedLettersTrueFalse = [];
+var Letter = function (letter) {
+    this.letter = letter.toLowerCase();
+    this.guessed = false;
 
-    for (let i = 0; i < word.length; i++)
-        this.guessedLettersTrueFalse[i] = false;
-
-    this.letterHasBeenGuessed = function (letter) {
+    this.guess = function (letter) {
         letter = letter.toLowerCase();
-        for (let i = 0; i < this.guessedLettersTrueFalse.length; i++) {
-            if (this.word[i] === letter && this.guessedLettersTrueFalse[i])
-                return this.word[i];
+
+        if (this.letter === letter) {
+            this.guessed = true;
         }
+
+        return this.guessed;
+    }
+
+    this.getLetter = function () {
+        if (!this.guessed)
+            return this.letter;
+
         return "_";
 
     };
-    this.guess = function (letter) {
-        letter = letter.toLowerCase();
-        let guessedRight = false;
-        for (let i = 0; i < this.word.length; i++) {
-            if (this.word[i] === letter) {
-                this.guessedLettersTrueFalse[i] = true;
-                guessedRight = true;
-            }
-        }
-        return guessedRight;
-    }
-}
+};
 module.exports = Letter;
