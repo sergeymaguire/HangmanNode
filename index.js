@@ -28,7 +28,8 @@ function play(response) {
         return;
     }
     word.guess(response);
-    console.log("Your current word: " + word.getWord());
+    console.log("Your Current Word: " + word.getWord());
+    console.log("Recently Guessed Letter : " + response)
     console.log("***************************************************************************************************************************************************".bold.bgBlue)
     if(word.wonGame()) {
         console.log("CONGRATS YOU HAVE WON!!!".underline.green);
