@@ -1,5 +1,6 @@
 let Word = require("./word.js"),
     Letter = require("./letter.js"),
+    color = require("colors"),
     gameWords = ["Jurassic Park", "Brody", "Trout", "Escondido"],
     i = Math.floor(Math.random() * gameWords.length),
     starting = true,
@@ -9,14 +10,16 @@ let Word = require("./word.js"),
 var stdin = process.openStdin();
 
 function askUserIfHeWantsToPlayGame(cli, play) {
-    console.log("Would you like to play some hangman(y/n)");
+    console.log("Would you like to play some hangman(y/n)".magenta);
     cli.addListener("data", function (d) {
-        play(d.toString().trim());
+         play(d.toString().trim());
     });
 
 }
 
 function play(response) {
+    console.log("*************************************************************WELCOME TO HANGMAN!******************************************************************".bold.bgBlue)
+    var quit = console.log("To quit anytime press CTRL C!".america)
     if(debug)
       console.log(word.getActualWord());//debug only
 
@@ -25,11 +28,13 @@ function play(response) {
         return;
     }
     word.guess(response);
-    console.log(word.getWord());
+    console.log("Your current word: " + word.getWord());
+    console.log("***************************************************************************************************************************************************".bold.bgBlue)
     if(word.wonGame()) {
-        console.log("won");
+        console.log("CONGRATS YOU HAVE WON!!!".underline.green);
         process.exit(4);
     }
+
 }
 
 askUserIfHeWantsToPlayGame(stdin, play);
