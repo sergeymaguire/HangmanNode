@@ -3,6 +3,9 @@ var Letter = function (letter) {
     this.guessed = false;
 
     this.guess = function (letter) {
+        if (!letter)
+            return;
+
         letter = letter.toLowerCase();
 
         if (this.letter === letter) {
@@ -12,12 +15,20 @@ var Letter = function (letter) {
         return this.guessed;
     }
 
+    this.getGuessed = function() {
+        return this.guessed;
+    }
     this.getLetter = function () {
-        if (!this.guessed)
+        if (this.guessed)
             return this.letter;
 
         return "_";
 
     };
+
+    this.getActualLetter = function () {
+        return this.letter;
+    };
+
 };
 module.exports = Letter;

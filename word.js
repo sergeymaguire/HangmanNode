@@ -6,7 +6,7 @@ var Word = function (word) {
     for (let i = 0; i < word.length; i++) {
         let aLetter = new Letter(word[i]);
         this.letters[i] = aLetter;
-        
+
     }
 
     this.getWord = function () {
@@ -15,13 +15,30 @@ var Word = function (word) {
             theWord.push(this.letters[i].getLetter())
         }
         return theWord.join("");
-     };
+    };
 
-     this.guess = function (aLetter) {
+    this.getActualWord = function () {
+        let theWord = [];
+        for (let i = 0; i < this.letters.length; i++) {
+            theWord.push(this.letters[i].getActualLetter());
+        }
+        return theWord.join("");
+    };
+
+    this.guess = function (aLetter) {
         let theWord = [];
         for (let i = 0; i < this.letters.length; i++) {
             this.letters[i].guess(aLetter);
         }
-     };
+    };
+
+    this.wonGame = function (aLetter) {
+        let theWord = [];
+        for (let i = 0; i < this.letters.length; i++) {
+            if (!this.letters[i].getGuessed())
+                return false;
+        }
+        return true;
+    };
 }
 module.exports = Word;

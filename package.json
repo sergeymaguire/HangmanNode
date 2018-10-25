@@ -16,5 +16,9 @@
   "bugs": {
     "url": "https://github.com/sergeymaguire/HangmanNode/issues"
   },
-  "homepage": "https://github.com/sergeymaguire/HangmanNode#readme"
+  "homepage": "https://github.com/sergeymaguire/HangmanNode#readme",
+  "dependencies": {
+    "prompt": "^1.0.0",
+    "yesno": "0.0.1"
+  }
 }
