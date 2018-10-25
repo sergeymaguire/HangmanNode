@@ -1,6 +1,6 @@
 var Letter = function (letter) {
     this.letter = letter.toLowerCase();
-    this.guessed = false;
+    this.guessed = this.letter === " "? this.guessed = true: this.guessed = false;
 
     this.guess = function (letter) {
         if (!letter)

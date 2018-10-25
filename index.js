@@ -1,10 +1,10 @@
+let debug = false;// make this false before submitting homework
 let Word = require("./word.js"),
     Letter = require("./letter.js"),
     color = require("colors"),
-    gameWords = ["Jurassic Park", "Brody", "Trout", "Escondido"],
+    gameWords = debug? ["a giant brown trout"]:["Jurassic Park", "Brody", "Trout", "Escondido"],
     i = Math.floor(Math.random() * gameWords.length),
     starting = true,
-    debug = true,
     word = new Word(gameWords[i]);
 
 var stdin = process.openStdin();
