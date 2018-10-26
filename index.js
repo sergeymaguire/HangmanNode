@@ -1,6 +1,7 @@
 let debug = true; // make this false before submitting homework
 let Word = require("./word.js"),
   Letter = require("./letter.js"),
+  firstTime = true,
   guessesRemaining = 25;
 (color = require("colors")),
   (gameWords = debug
@@ -30,17 +31,24 @@ function askUserIfHeWantsToPlayGame(cli, play) {
   console.log("Would you like to play some hangman(y/n)".magenta);
   cli.addListener("data", function(d) {
     let s = d.toString().trim();
+    if (firstTime) {
+      firstTime = false;
+      if (s === "y") return;
+      process.exit(2);
+    }
     if (validInput(s)) play(s);
+    else
+    console.log("Please enter only a letter: ".underline.red + s);
   });
 }
 function validInput(s) {
   if (s.length > 1) {
-    console.log("You can only enter one letter at a time: ".underline.red + s);
+    
     return false;
   }
-  if (!s.match(/[a-z]/i)){ 
-      console.log("You can only enter an alphabetic letter...".bgCyan);
-  return false;
+  if (!s.match(/[a-z]/i)) {
+    //console.log("You can only enter an alphabetic letter...".bgCyan);
+    return false;
   }
 
   return true;
