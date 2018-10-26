@@ -1,9 +1,9 @@
 let debug = false;// make this false before submitting homework
 let Word = require("./word.js"),
     Letter = require("./letter.js"),
-    guessesRemaining = 21;
+    guessesRemaining = 25;
     color = require("colors"),
-    gameWords = debug? ["a giant brown trout"]:["Jurassic Park", "Brody", "Trout", "Escondido","San Diego Padres", "UCSD Coding Bootcamp", "Pulp Fiction", "Cat", "Dog", "Bob Saget","Donald Trump", "Elvis Presly", "Ennis"],
+    gameWords = debug? ["a giant brown trout"]:["Jurassic Park","Brody", "Trout", "Escondido","San Diego Padres", "UCSD Coding Bootcamp", "Pulp Fiction", "Cat", "Dog", "Bob Saget","Donald Trump", "Elvis Presly", "Ennis"],
     i = Math.floor(Math.random(45) * gameWords.length),
     starting = true,
     word = new Word(gameWords[i]);
@@ -24,7 +24,7 @@ function play(response) {
     console.log("To play enter a letter and then press enter.  You will have to press enter for every key you press!".bold + "\n");
     if(guessesRemaining <= 0) {
     console.log("Sorry you lost try again".bgRed + "\n");
-    console.log("The word you were trying to guess is: " + word.getActualWord() + "\n");
+    console.log("The word you were trying to guess is: " + word.getActualWord());
     process.exit();
 }
     guessesRemaining--;
@@ -48,12 +48,3 @@ function play(response) {
 }
 
 askUserIfHeWantsToPlayGame(stdin, play);
-
-// test = new Word("joe");
-// var x = test.getWord();
-// test.guess("j");
-// console.log(test.getWord());
-// test.guess("o");
-// console.log(test.getWord());
-// test.guess("e");
-// console.log(test.getWord());
