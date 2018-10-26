@@ -1,7 +1,7 @@
 let debug = true; // make this false before submitting homework
 let Word = require("./word.js"),
   Letter = require("./letter.js"),
-  guessesRemaining = 5;
+  guessesRemaining = 25;
 (color = require("colors")),
   (gameWords = debug
     ? ["a giant brown trout"]
