@@ -1,4 +1,4 @@
-let debug = true; // make this false before submitting homework
+let debug = false; // always have this false unless trying to test
 let Word = require("./word.js"),
   Letter = require("./letter.js"),
   firstTime = true,
@@ -32,6 +32,10 @@ function askUserIfHeWantsToPlayGame(cli, play) {
   cli.addListener("data", function(d) {
     let s = d.toString().trim();
     if (firstTime) {
+        console.log(
+            "To play enter a letter and then press enter.  You will have to press enter for every key you press!"
+              .bold + "\n"
+          );
       firstTime = false;
       if (s === "y") return;
       process.exit(2);
@@ -59,10 +63,6 @@ function play(response) {
       .bold.bgBlue + "\n"
   );
   console.log("To quit anytime press CTRL C!".america + "\n");
-  console.log(
-    "To play enter a letter and then press enter.  You will have to press enter for every key you press!"
-      .bold + "\n"
-  );
   if (guessesRemaining <= 0) {
     console.log("Sorry you lost try again".bgRed + "\n");
     console.log(
