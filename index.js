@@ -15,17 +15,16 @@ function askUserIfHeWantsToPlayGame(cli, play) {
     cli.addListener("data", function (d) {
          play(d.toString().trim());
     });
-
 }
 
 function play(response) {
-    console.log("*************************************************************WELCOME TO HANGMAN!******************************************************************".bold.bgBlue + "\n");
+    console.log("**********************************WELCOME TO HANGMAN!******************************************".bold.bgBlue + "\n");
     console.log("To quit anytime press CTRL C!".america + "\n");
     console.log("To play enter a letter and then press enter.  You will have to press enter for every key you press!".bold + "\n");
     if(guessesRemaining <= 0) {
     console.log("Sorry you lost try again".bgRed + "\n");
     console.log("The word you were trying to guess is: " + word.getActualWord());
-    process.exit();
+    process.exit(3);
 }
     guessesRemaining--;
     if(debug)
@@ -37,7 +36,7 @@ function play(response) {
     }
     word.guess(response);
     console.log("Your Current Word: " + word.getWord() + "\n");
-    console.log("Recently Guessed Letter : " + response + "\n");
+    console.log("Recently Guessed Letter : ".america + response + "\n");
     console.log(guessesRemaining);
     if(word.wonGame()) {
         console.log("CONGRATS YOU HAVE WON!!!".underline.green);
