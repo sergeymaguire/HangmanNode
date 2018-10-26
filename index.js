@@ -38,6 +38,11 @@ function validInput(s) {
     console.log("You can only enter one letter at a time: ".underline.red + s);
     return false;
   }
+  if (!s.match(/[a-z]/i)){ 
+      console.log("You can only enter an alphabetic letter...".bgCyan);
+  return false;
+  }
+
   return true;
 }
 function play(response) {
