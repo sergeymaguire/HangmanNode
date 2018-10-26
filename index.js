@@ -21,6 +21,11 @@ function askUserIfHeWantsToPlayGame(cli, play) {
 function play(response) {
     console.log("*************************************************************WELCOME TO HANGMAN!******************************************************************".bold.bgBlue)
     var quit = console.log("To quit anytime press CTRL C!".america)
+    if(guessesRemaining <= 0) {
+    console.log("Sorry you lost try again")
+    process.exit();
+}
+    guessesRemaining--;
     if(debug)
       console.log(word.getActualWord());//debug only
 
