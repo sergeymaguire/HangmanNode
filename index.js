@@ -1,6 +1,7 @@
 let debug = false;// make this false before submitting homework
 let Word = require("./word.js"),
     Letter = require("./letter.js"),
+    guessesRemaining = 21;
     color = require("colors"),
     gameWords = debug? ["a giant brown trout"]:["Jurassic Park", "Brody", "Trout", "Escondido","San Diego Padres", "UCSD Coding Bootcamp", "Pulp Fiction", "Cat", "Dog", "Bob Saget","Donald Trump", "Elvis Presly", "Ennis"],
     i = Math.floor(Math.random(45) * gameWords.length),
@@ -30,10 +31,12 @@ function play(response) {
     word.guess(response);
     console.log("Your Current Word: " + word.getWord());
     console.log("Recently Guessed Letter : " + response)
+    console.log(guessesRemaining);
     console.log("***************************************************************************************************************************************************".bold.bgBlue)
     if(word.wonGame()) {
         console.log("CONGRATS YOU HAVE WON!!!".underline.green);
         process.exit(4);
+        guessesRemaining;
     }
 
 }
