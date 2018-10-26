@@ -2,8 +2,8 @@ let debug = false;// make this false before submitting homework
 let Word = require("./word.js"),
     Letter = require("./letter.js"),
     color = require("colors"),
-    gameWords = debug? ["a giant brown trout"]:["Jurassic Park", "Brody", "Trout", "Escondido"],
-    i = Math.floor(Math.random() * gameWords.length),
+    gameWords = debug? ["a giant brown trout"]:["Jurassic Park", "Brody", "Trout", "Escondido","San Diego Padres", "UCSD Coding Bootcamp", "Pulp Fiction", "Cat", "Dog", "Bob Saget","Donald Trump", "Elvis Presly", "Ennis"],
+    i = Math.floor(Math.random(45) * gameWords.length),
     starting = true,
     word = new Word(gameWords[i]);
 
@@ -39,7 +39,7 @@ function play(response) {
 }
 
 askUserIfHeWantsToPlayGame(stdin, play);
-//debug 
+
 // test = new Word("joe");
 // var x = test.getWord();
 // test.guess("j");
